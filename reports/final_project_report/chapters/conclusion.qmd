@@ -1,0 +1,9 @@
+# Conclusion
+
+This project looked at several different machine learning models to see which ones were best at predicting whether a loan would be approved or not. The data used was cleaned up and organized beforehand. What we found was that the simpler models did a pretty good job to start with, but the more complex models were better at picking up on non linearity in the data and making more accurate predictions. They could handle more complex patterns and imporove predictions.
+
+When it comes to figuring out how well a model is doing, just looking at how accurate it is doesn't cut it. You need to consider other metrics like precision, recall, and the F1 score to get a better sense of what's going on. These metrics take into account the different types of mistakes a model can make, which gives you a more complete picture. The F1 score is especially handy for comparing different models because it looks at both false positives and false negatives, giving you a more balanced view. This way, you can make a more informed decision about which model is actually performing better.
+
+These results have important real-world implications, as different errors carry different risks in loan approval decisions. Therefore, model selection should align with the specific priorities and risk tolerance of the application.
+
+Looking ahead, there are plenty of ways to take this project further, like adding more features, using more complex models, or finding better methods to make the results easier to understand and fairer. But the main takeaway from this work is that it's crucial to have a good balance between making accurate predictions and carefully evaluating them, so we can make informed decisions that really work.

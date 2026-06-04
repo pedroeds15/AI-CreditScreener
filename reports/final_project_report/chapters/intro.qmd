@@ -1,0 +1,33 @@
+# Introduction
+Loan approval prediction is a critical task in the financial sector, as it directly impacts credit risk management and lending efficiency. Financial institutions must evaluate whether applicants are likely to repay loans, traditionally relying on manual processes that combine qualitative judgment with quantitative data. However, these methods can be time-consuming, inconsistent, and difficult to scale. With the increasing shift towards maximizing efficency and data-driven decision-making, machine learning offers a more efficient, consistent, and scalable approach to automating loan approval predictions.
+
+## Overview
+This project explores the use of supervised machine learning techniques to classify whether a loan application should be approved or not. The dataset used is the Loan Approval Classification Dataset from Kaggle [@lo2024loan], which consists primarily of synthetic data generated using AI. The target variable, loan_status, indicates whether a loan is approved (1) or not approved (0). This dataset is used to train and evaluate multiple machine learning models, including Logistic Regression, Decision Trees, and Random Forest classifiers, enabling a comparison between the effectiveness of linear and non-linear approaches. The goal of this project is to identify the most effective model for predicting loan approval outcomes while analyzing the strengths and limitations of each method.
+
+### Existing System
+In many banking systems, loan approval decisions are made through manual review processes that involve assessing applicant information such as income, credit history, and employment status. While these systems incorporate important financial indicators, they are often subject to human bias, inconsistency, and inefficiency. Additionally, manual approaches are difficult to scale and may fail to capture complex patterns within large datasets, limiting their effectiveness in modern world.
+
+## Objectives of Project 
+The objectives of this project are to clean the dataset and perform exploratory data analysis to better understand the underlying patterns and relationships between features and the target variable. The data is then preprocessed by handling missing values, encoding categorical variables, and applying feature scaling where necessary to ensure it is suitable for modeling. Multiple supervised learning models, including Logistic Regression, Decision Trees, and Random Forest classifiers, are implemented and compared to evaluate both linear and non-linear approaches to loan approval prediction. Model performance is assessed using standard classification metrics such as accuracy, precision, recall, and F1-score, along with cross-validation. Ultimately, the project aims to identify the most effective model for predicting loan approval outcomes while analyzing the strengths and limitations of each approach to provide insights for future improvements.
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

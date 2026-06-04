@@ -1,0 +1,62 @@
+# Methodology
+
+## Introduction to Python for Machine Learning
+
+Python was used as our primary programming language to preprocess our data, build our model and visualize our results.
+
+## Platform and Machine Configurations Used
+
+To build out our whole model we used Python3 and wrote all our code within Visual Studio Code. We used the pandas and numpy libraries for data manipulation, seaborn and matplotlib for visualization, scikit-learn for model training and evaluation. These libraries provided a good setup for us to build out an accurate ML model.
+
+## Data Split
+
+Once we had preprocessed all our data we split it 80/20 between training and test data allowing us to see how the model performs with new data. The model learnt using the training data and was tested using the test data. This ensures that our evaluation of the model is fair and doesn't give us results based on memorized data.
+
+## Model Planning
+
+After getting a good understanding of our data we now needed to figure out what models to fit the data to. We started off with the fact that we had a classification problem at hand so we can't use a linear regression model. We wanted to use a Neural Network because we were interested in it but we found that it's not the best fit for the problem. It would give us a low interpretability, it is meant for text, audio, or images but we had tabular data, and we had 45,000 rows but Neural Networks need very large datasets to shine.
+
+So we decided to go with Logistic Regression because it is a linear model with a good interpretability that can give us a baseline model. However it cant really capture complex relationships because it assumes linearity. To make up for that we decided to choose a Decision Tree Model. It's highly interpretable, and can capture non linear relationships that logistic regression might have missed. However it could overfit the model or memorize the data. To account for that we also decided to use a Random Forest model which is essentially a colection of decision trees and will reduce the overfitting. 
+
+## Model Training: 
+
+The training data was used to fit three supervised learning models: Logistic Regression, Decision Tree, and Random Forest. For Logistic Regression, feature scaling was applied using StandardScaler to ensure that all input features were on a comparable scale, improving convergence and performance. The Decision Tree model was trained on the original feature set, allowing it to capture non-linear relationships without the need for scaling. The Random Forest model was also trained on the unscaled data and further optimized using GridSearchCV, which performed an exhaustive search over a range of hyperparameters using 5-fold cross-validation.
+
+## Model Evaluation
+
+The models were evaluated on the test dataset using the following metrics
+
+- **Accuracy:** The percentage of how many predctions were correct overall
+- **Precission:** Out of the times the model predicted yes how many were correct
+- **Recall:** Out of all actual yes cases how many did the model catch
+- **F1 Score:** A balance between precision and recall
+
+To understand why we chose F1 Score as our most important metric to determine the best model we must understand the relationship between all these metrics
+
+**High Precision But Low Recall:**
+- Only approve very safe applicants
+- Few bad approvals
+- Reject many good applicants
+
+**High Recall But Low Precision:**
+- You catch all good borrowers but you approve almost everyone
+- Therefore risking approving bad borrowers
+
+So we chose F1 Score because it is a balance of these 2 situations giving us the best Precision/Recall tradeoff
+
+## Model Optimization
+
+Optimization focused on hyperparameter tuning, particularly for the Random Forest model, as it showed a stronger performance compared to the other models. GridSearchCV was used to systematically search for the optimal combination of hyperparameters. The parameters tuned included the number of trees in the forest (n_estimators), the maximum depth of each tree (max_depth), the minimum number of samples required to split a node (min_samples_split), and the minimum number of samples required at a leaf node (min_samples_leaf). A 5-fold cross-validation approach was used during this process, with the F1-score selected as the evaluation metric to ensure a balanced assessment of precision and recall. As a result, the optimized Random Forest model achieved improved performance compared to its initial configuration and outperformed the Logistic Regression and Decision Tree models across majority of the evaluation metrics.
+
+## Final Model Building
+
+| Model               | Accuracy | Test Error |
+| ------------------- | -------- | ---------- |
+| Logistic Regression | 0.8992   | 0.1008     |
+| Decision Tree       | 0.9004   | 0.0996     |
+| Random Forest       | 0.9308   | 0.0692     |
+
+: Test Error Model Comparison {#tbl-results}
+
+
+The table shows the final test error scores for each model, with Random Forest achieving the lowest test error of 0.0692, indicating it has the best generalization performance among the models evaluated. 

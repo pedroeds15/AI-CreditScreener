@@ -1,0 +1,70 @@
+# Results
+
+## Description of the Models
+
+Logistic Regression was used as a baseline linear classifier and was trained on standardized features using StandardScaler, with max_iter=1000 and random_state=42. A Decision Tree classifier was also trained using random_state=42 to capture non-linear relationships in the data. In addition, a Random Forest classifier was implemented as an ensemble method to improve predictive performance and reduce overfitting. The Random Forest model was further optimized using GridSearchCV to find the best hyperparameters, including n_estimators, max_depth, and min_samples_split, with random_state=42 for reproducibility.
+
+## Performance Metrics
+
+Model performance was evaluated using accuracy, precision, recall, and F1-score. Accuracy reflects the overall proportion of correct predictions, while precision measures the proportion of correctly predicted positive cases. Recall indicates the model’s ability to identify actual positive cases. The F1-score, which balances precision and recall, was selected as the primary evaluation metric due to its ability to provide a more comprehensive assessment of classification performance. Based on this metric, the Random Forest model achieved the highest F1-score and was therefore identified as the best-performing model.
+
+## Results Table
+
+| Model               | Accuracy | Precision | Recall | F1 Score |
+|---------------------|----------|-----------|--------|----------|
+| Logistic Regression | 0.899222 | 0.788695  | 0.7465 | 0.767018 |
+| Decision Tree       | 0.900444 | 0.771654  | 0.7840 | 0.777778 |
+| Random Forest       | 0.930778 | 0.896830  | 0.7780 | 0.833199 |
+
+:Model Performance Comparison {#tbl-results}
+
+The table above summarizes the performance of each model across classification metrics. 
+
+
+## Interpretation of the Results 
+
+To determine the best-performing model, the F1-score was selected as the primary evaluation metric, as it provides a balanced measure of precision and recall. This is particularly important in loan approval prediction, where both false positives (approving high-risk applicants) and false negatives (rejecting creditworthy applicants) have significant financial and operational consequences. By prioritizing F1-score, the evaluation emphasizes overall decision quality rather than relying solely on accuracy, which can be misleading in classification tasks.
+
+The results show that the Random Forest model achieved the strongest overall performance, with the highest accuracy (0.9308), precision (0.8968), and F1-score (0.8332). This indicates that it produces both accurate and reliable predictions. Its performance can be attributed to its structure, which enables it to capture complex feature interactions while reducing variance and improving generalization. 
+
+The Decision Tree model achieved slightly higher recall (0.7840) compared to Random Forest (0.7780), indicating a stronger ability to identify approved loans. However, its lower precision and F1-score suggest that this comes at the cost of more incorrect approvals. Logistic Regression showed the weakest performance overall, reflecting its limitation in modeling more complex decision boundaries.
+
+The confusion matrices further support these findings. Logistic Regression produces a higher number of false negatives, meaning it fails to identify some approved loans. The Decision Tree reduces false negatives but introduces more false positives, indicating a higher likelihood of incorrectly approving loans. In contrast, the Random Forest model significantly reduces false positives while maintaining a high number of true positives, achieving a more balanced classification outcome.
+
+From a practical perspective, minimizing false positives is critical in loan approval systems, as approving high-risk applicants can lead to financial loss. At the same time, maintaining strong true positive performance ensures that qualified applicants are not unnecessarily rejected. The Random Forest model best satisfies this balance, making it the most suitable choice for this task.
+
+## Visualization
+
+::: {#fig:res}
+![Model performance bargraph.](../../reports/figures/f1_score_comparison.png)
+:::
+F1-score comparison across models showing that the Random Forest model outperforms both Logistic Regression and Decision Tree with an F1-score of 0.8332, indicating superior performance in balancing precision and recall for loan approval prediction.
+
+::: {#fig:res}
+![Decision Tree Confusion Matrix](../../reports/figures/Decision%20Tree_confusion_matrix.png)
+:::
+Confusion matrix for the Decision Tree model, showing a relatively high number of true positives but also increased false positives, indicating a tendency to approve more loans at the cost of misclassifying some high-risk applicants.
+
+::: {#fig:res}
+![Logistic Regression Confusion Matrix](../../reports/figures/Logistic%20Regression_confusion_matrix.png)
+:::
+Confusion matrix for the Logistic Regression model, demonstrating more balanced predictions but a higher number of false negatives, suggesting that the model is more conservative and may reject some creditworthy applicants.
+
+::: {#fig:res}
+![Random Forest Confusion Matrix](../../reports/figures/Random%20Forest_confusion_matrix.png)
+:::
+Confusion matrix for the Random Forest model, illustrating strong overall performance with high true positive and true negative rates, indicating a well-balanced model that minimizes both false positives and false negatives.
+
+## Sensitivity Analysis
+Initially, model selection was based on accuracy, which identified Logistic Regression as the best-performing model. However, when the evaluation metric was changed to F1-score—providing a more balanced measure of precision and recall, the results shifted. 
+
+Additionally, hyperparameter tuning was applied to the Random Forest model using GridSearchCV. After tuning, the Random Forest model outperformed Logistic Regression across key metrics, including F1-score. This demonstrates that model performance is sensitive to both the choice of evaluation metric and the selection of hyperparameters.
+
+These findings highlight the importance of using appropriate evaluation metrics and tuning techniques, particularly in real-world scenarios such as loan approval prediction, where balanced performance and generalization are critical. This reinforces that model selection should not rely on a single metric, as different evaluation criteria can lead to different conclusions about model performance.
+
+
+
+
+
+
+

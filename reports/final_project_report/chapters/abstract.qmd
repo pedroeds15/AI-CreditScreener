@@ -1,0 +1,9 @@
+# Abstract {.unnumbered}
+
+The prediction of loan approvals in banking is essential for managing credit risk and ensuring that applicants receive appropriate access to credit. Many financial institutions still rely on manual evaluation processes that incorporate both qualitative and quantitative information; however, these approaches can be inefficient and prone to inconsistency. This project addresses these limitations by applying supervised machine learning techniques to develop a classification model for predicting loan approval outcomes based on applicant data.
+
+We use the Loan Approval Classification Dataset from Kaggle [@lo2024loan], which includes features such as age, gender, education, income, employment experience, home ownership status, loan purpose, loan amount, interest rate, loan-to-income ratio, credit history length, and credit score. The target variable, loan_status, indicates whether a loan is approved (1) or not approved (0).
+
+Following initial data exploration, the dataset undergoes preprocessing to ensure suitability for modeling. These steps include handling missing values, encoding categorical variables, and applying feature scaling where appropriate. We then implement and compare multiple supervised learning models, including Logistic Regression, Decision Trees, and Random Forest classifiers, to evaluate both linear and non-linear approaches.
+
+Model performance is assessed using standard classification metrics such as accuracy, precision, recall, and F1-score, along with cross-validation. The objective is to determine the most effective model for predicting loan approval outcomes while analyzing the strengths and limitations of each approach. The findings of this project provide insights into the application of machine learning for automating loan approval predictions, offering potential improvements in efficiency and consistency for financial institutions.

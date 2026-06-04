@@ -1,0 +1,22 @@
+# Pre-Processing and Exploratory Data Analysis
+
+
+## Dataset Collection
+Once we got our dataset from kaggle, we need to preprocess it to make it suitable for machine learning. This includes cleaning the data, handling missing values, encoding categorical variables, and scaling numerical features. This step is crucial as the accuracy of our model depends on the quality of our data. 
+
+Since the dataset we found was synthetic it was nearly clean and we didn't have to go through a large cleaning process. However, there were still some issues we found with it and needed to address.
+
+## Data Pre-processing
+
+When preprocessing the data we first started by checking for any null values or weird data. Using df.info() we found that there were no null values and we weren't missing any data. However when we dug deeper and ran df.describe() we saw that the age range was really high. There were several people over 90 years old with some as old as 144. Realistically these people aren't even alive and therefore not applying for loans so we decided to fix these outliers by changing all their ages to be capped at 90.
+
+We didn't find any problems with the data size, we found that there were enough variables and enough rows that we weren't over or underfitting the model. However, what we did have to do was transform the categorical variables into numerical values.
+
+There we're 3 different kinds of categroical variables we had to do this to and used 2 different methods. The first variable was preson_education where we had to use Ordinal Encoding because it had a natural order where; High School < Bachelor < Masters etc. Then for previous_loan_defaults_on_file we did Binary Encoding maping a no to 0 and a yes to 1. Finally for the nominal variables we did One-Hot Encoding that created binary columns for each possible values.
+
+## Exploratory Data Analysis and Visualisations 
+
+When exploring the data we used several different techniques to understand patterns, help us find trends, identify correlations, and reduce dimensiality. 
+
+To visualize the data we used several different pandas and numpy methods that let us get a better understanding of the relationships between the columns and rows, what the data looked like and more. It was through this that we found out that we needed to encode the categorical variables and remove things like person_gender, because banks don't to use that as a metric (it's unethical) and so should be removed for the sake of being more realistic and closer to what a real world scenario would look like. 
+This also helped us to identify the rows that had an insanely high age as mentioned above and cap those values. Later on it led us to understand what our target variable should be and helped us do feature engine because it helped us see that we should remove the interest rate variable because it would give the model too large of a clue as to whether someone got approved or not.
